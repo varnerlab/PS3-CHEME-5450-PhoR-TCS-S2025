@@ -8,18 +8,6 @@ function compute_transcription_rate(parameter_dictionary::Dict{Symbol,Any})
     X_tau_factor = parameter_dictionary[:X_tau_factor]
     KX = parameter_dictionary[:KX]
 
-
-    # compute the control variable value -
-    induction_parameter_dictionary = parameter_dictionary[:induction_parameter_dictionary]
-    K1 = induction_parameter_dictionary[:K1]
-    K2 = induction_parameter_dictionary[:K2]
-    n = induction_parameter_dictionary[:coop_parameter]
-    k_binding = induction_parameter_dictionary[:k_binding]
-    I = induction_parameter_dictionary[:inducer_concentration]
-    f_function = (I^n)/(k_binding^n+I^n)
-    u_variable = (K1+K2*f_function)/(1+K1+K2*f_function)
-
-
     # kinetic limit -
     transcription_rate = VX*length_factor_transcription*(gene_concentration/(KX*X_tau_factor+(1+X_tau_factor)*gene_concentration));
 
