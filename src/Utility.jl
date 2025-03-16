@@ -24,7 +24,7 @@ function compute_transcription_rate(parameter_dictionary::Dict{Symbol,Any})
     transcription_rate = VX*length_factor_transcription*(gene_concentration/(KX*X_tau_factor+(1+X_tau_factor)*gene_concentration));
 
     # return transcription rate -
-    return transcription_rate*u_variable
+    return transcription_rate;
 end
 
 function compute_translation_rate(rX_hat, parameter_dictionary::Dict{Symbol,Any})
